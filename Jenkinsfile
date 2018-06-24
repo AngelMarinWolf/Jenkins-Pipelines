@@ -8,7 +8,14 @@ pipeline {
       }
       steps{
         sh 'ls -lha'
-        sh 'cp index.html /usr/share/nginx/html/pipeline/index.html'
+        bash '''#! /bin/bash
+                if [ ! -d "/usr/share/nginx/html/pipeline/" ]; then
+                  mkdir /usr/share/nginx/html/pipeline/
+                  cp index.html /usr/share/nginx/html/pipeline/index.html
+                else
+                  cp index.html /usr/share/nginx/html/pipeline/index.html
+                fi
+        '''
       }
     }
     stage('TestDeploy'){
@@ -18,7 +25,14 @@ pipeline {
       }
       steps{
         sh 'ls -lha'
-        sh 'cp index.html /usr/share/nginx/html/pipeline/index.html'
+        bash '''#! /bin/bash
+                if [ ! -d "/usr/share/nginx/html/pipeline/" ]; then
+                  mkdir /usr/share/nginx/html/pipeline/
+                  cp index.html /usr/share/nginx/html/pipeline/index.html
+                else
+                  cp index.html /usr/share/nginx/html/pipeline/index.html
+                fi
+        '''
       }
     }
   }
