@@ -8,7 +8,7 @@ pipeline {
       }
       steps{
         sh 'ls -lha'
-        bash '''#! /bin/bash
+        sh '''#! /bin/bash
                 if [ ! -d "/usr/share/nginx/html/pipeline/" ]; then
                   mkdir /usr/share/nginx/html/pipeline/
                   cp index.html /usr/share/nginx/html/pipeline/index.html
@@ -25,7 +25,7 @@ pipeline {
       }
       steps{
         sh 'ls -lha'
-        bash '''#! /bin/bash
+        sh '''#! /bin/bash
                 if [ ! -d "/usr/share/nginx/html/pipeline/" ]; then
                   mkdir /usr/share/nginx/html/pipeline/
                   cp index.html /usr/share/nginx/html/pipeline/index.html
